@@ -1,10 +1,10 @@
-package com.misolab.greatedays;
+package com.misolab.greatdays;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GreatedaysApplicationTests {
+class GreatDaysApplicationTests {
 
 	@Test
 	void contextLoads() {

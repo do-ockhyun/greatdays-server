@@ -1,4 +1,4 @@
-package com.misolab.greatedays.config;
+package com.misolab.greatdays.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +11,6 @@ public class SecurityConfig {
     
     @Bean
     WebSecurityCustomizer webSecurityCustomizer() {
-        return webSecurity -> webSecurity.ignoring().requestMatchers("/api/**");
+        return webSecurity -> webSecurity.ignoring().requestMatchers("/**");
     }
 }

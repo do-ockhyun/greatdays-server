@@ -1,4 +1,4 @@
-package com.misolab.greatedays;
+package com.misolab.greatdays;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
 @EnableWebMvc
-public class GreatedaysApplication {
+public class GreatDaysApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GreatedaysApplication.class, args);
+		SpringApplication.run(GreatDaysApplication.class, args);
 	}
 
 }
