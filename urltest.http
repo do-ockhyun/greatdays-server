@@ -1,2 +1,55 @@
+ 
 
 GET http://localhost:8080/api HTTP/1.1
+
+###
+POST  http://localhost:8080/api/feedback HTTP/1.1
+Content-Type: application/json
+
+{
+    "content": "나 포켔몬고를 했어. 그래서 샤미드,에브이,피카츄,가디안을잡았어"
+}
+
+
+
+###
+@openai-apikey = openai-apikey
+
+POST https://api.openai.com/v1/chat/completions  HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{openai-apikey}}
+
+{
+    "model": "gpt-3.5-turbo",
+    "messages": [
+        {
+            "role": "system", 
+            "content": "You are a mentor who provides support based on reading a diary. Proceed in the following order."
+        },
+        {
+            "role": "user", 
+            "content": "fail"
+        }
+    ]
+}
+
+###
+
+POST https://api.openai.com/v1/chat/completions  HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{openai-apikey}}
+
+{
+    "model": "gpt-3.5-turbo",
+    "temperature": 0.7,
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a mentor who provides support based on reading a diary. Proceed in the following order."
+        },
+        {
+            "role": "user",
+            "content": "1. [title] : Think of the diary title after understanding the [events] separated by ''' at the bottom.\n2. [Feedback] should include positive responses such as encouragement and congratulations.\n3. [Title] Choose a title for the diary.\n4. [Keyword] Specify keywords from the diary content.\n5. [Point] Assign an emotional score between 1 and 10 based on the content.\nTranslate into Korean and Use the output in the following JSON format:\n{\n    title: here is [Title],\n    feed_back: here is [Feedback],\n    keyword: here is [Keyword],\n    point: here is [Point]\n}\n\n[events]:\n'''\n가족과 함께 저녁을 먹고 볼링장을 갔다. 예나는 볼링공이 자꾸 삐뚤어져서 잘 안굴러가서 화가 났다.\n'''\n"
+        }
+    ]
+}
