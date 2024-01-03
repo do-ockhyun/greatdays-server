@@ -27,5 +27,20 @@ public class APIController {
         FeedbackResult result = gptService.chat(content);
         return result;
     }
+
+    @GetMapping("/diary/${yyyymm}")
+    public String diary(String yyyymm) {
+        return "Hello, world!";
+    }
+
+    @GetMapping("/chat/${yyyymmdd}")
+    public String chat(String yyyymmdd) {
+        return "Hello, world!";
+    }
+
+    @PostMapping("/save/${saveID}")
+    public String save(String saveID) {
+        return "Hello, world!";
+    }
     
 }

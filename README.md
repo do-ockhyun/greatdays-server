@@ -1,4 +1,44 @@
 
+### 2024-01-03
+- chat API
+  * 레퍼런스
+  * 작업과정
+    - [ ] 인터페이스
+      * GET /diary/${yyyymm}
+        - out
+          * diary: []
+            - day: yyyymmdd
+            - content
+            - keyword
+            - point
+      * GET /chat/${yyyymmdd}
+        - out
+          * messages: []
+            - timestamp: 
+            - content: 
+      * POST /feedback
+        - in
+          * messages: []
+            - timestamp: 
+            - content: 
+          * yyyymmdd
+        - out
+          * feedback
+          * <s>title</s> (삭제)
+          * keyword
+          * point
+          * saveId
+      * POST /save/${saveId}
+        - in
+          * keyword
+          * point
+        - out
+          * result
+    - [ ] Data 연동 
+      * DB Scheme
+      * DAO, VO
+
+
 ### 2024-01-01
 - GPT API를 이용해서 일기 피드백 받기
   * 레퍼런스 
