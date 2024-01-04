@@ -53,3 +53,31 @@ Authorization: Bearer {{openai-apikey}}
         }
     ]
 }
+
+###
+GET http://localhost:8080/api/chat/20231111/new HTTP/1.1
+
+###
+GET http://localhost:8080/api/chat/20231111/100 HTTP/1.1
+
+###
+POST http://localhost:8080/api/feedback/20231111 HTTP/1.1
+Content-Type: application/json
+
+[
+    {
+        "sender": "me",
+        "created": "2021-08-01T00:00:00.000Z",
+        "content": "내가 좋아하는 것에만 집중하기로 했다."
+    },
+    {
+        "sender": "me",
+        "created": "2021-08-01T00:00:00.000Z",
+        "content": "그 밖의 것들까지 신경 쓰기엔"
+    },
+    {
+        "sender": "me",
+        "created": "2021-08-01T00:00:00.000Z",
+        "content": "인생은 너무 짧으니깐"
+    }
+]

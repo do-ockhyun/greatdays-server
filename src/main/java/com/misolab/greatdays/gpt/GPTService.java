@@ -32,25 +32,24 @@ public class GPTService {
 
     public FeedbackResult chat(String events) throws Exception {
         String userPrompt = """
-1. [Title] Think of the diary title after understanding the [events] separated by ''' at the bottom.
+1. understanding the [events] separated by --- at the bottom.
 2. [Feedback] should include positive responses such as encouragement and congratulations.
 3. [Keyword] Specify keywords from the diary content.
 4. [Point] Assign an emotional score between 1 and 10 based on the content.
-
-Translate into Korean and write the diary title, feedback, keyword, and point in the following format.
+5. [Language] Please use the same language as [events] for [Feedback]
+6. write in the following format.
 
 Use the output in the following JSON format:
 { 
-    title: here is [Title],
     feedback: here is [Feedback],
     keyword: here is [Keyword],
-    point: here is [Point]
+    point: here is [Point],
+    language: here is [Language]
 }
 
 [events]:
-'''
+---
 %s
-'''
 """.formatted(events);
 
         GPTRequest request = new GPTRequest(model, temperature, max_tokens);

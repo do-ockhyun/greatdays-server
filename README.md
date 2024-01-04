@@ -11,23 +11,28 @@
             - content
             - keyword
             - point
-      * GET /chat/${yyyymmdd}
+
+      * GET /chat/{yyyymmdd}/{roomId}
         - out
-          * messages: []
-            - timestamp: 
+          * roomId
+          * talk: []
+            - sender
+            - created: 
             - content: 
-      * POST /feedback
+
+      * POST /feedback/{roomId}
         - in
-          * messages: []
-            - timestamp: 
+          * talks: []
+            - sender
+            - created: 
             - content: 
-          * yyyymmdd
         - out
           * feedback
           * <s>title</s> (삭제)
           * keyword
           * point
           * saveId
+
       * POST /save/${saveId}
         - in
           * keyword
